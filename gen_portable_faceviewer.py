@@ -1,17 +1,30 @@
 import argparse
+from base64 import standard_b64encode
 
 def insert_binary_file_here(current_line, out, filename):
+    # with open(filename, "rb") as toinsert:
+    #     left = current_line.split("/*")[0]
+    #     right = current_line.split("*/")[1]
+
+    #     first_byte = hex(toinsert.read(1)[0])
+    #     out.write(left + f"{first_byte}")
+    #     while (current_byte := toinsert.read(1)):
+    #         as_string = hex(current_byte[0])
+    #         out.write(f", {as_string}")
+    #     out.write(right)
+    # toinsert.close()
+
     with open(filename, "rb") as toinsert:
         left = current_line.split("/*")[0]
         right = current_line.split("*/")[1]
 
-        first_byte = hex(toinsert.read(1)[0])
-        out.write(left + f"{first_byte}")
-        while (current_byte := toinsert.read(1)):
-            as_string = hex(current_byte[0])
-            out.write(f", {as_string}")
+        all_bytes = toinsert.read()
+        out.write(left)
+        out.write(standard_b64encode(all_bytes).decode('utf-8'))
         out.write(right)
     toinsert.close()
+
+
 
     return
 
