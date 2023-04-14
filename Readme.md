@@ -15,7 +15,7 @@ Format to be replaced in files:
 
 # Example
 
-## Input
+## Input template.html
 
 ```
 const blob1 = new Blob([/* data/test.obj here */]);
@@ -29,7 +29,7 @@ const imageData = new Uint8Array([/* data/test.jpg here */]);
 python gen_portable_faceviewer.py data/test.mtl data/test.obj data/test.jpg -t template.html -o index.html
 ```
 
-## Result
+## Output index.html
 
 ```
 const blob1 = new Blob([`mtllib test.mtl
