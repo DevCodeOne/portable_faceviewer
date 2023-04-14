@@ -20,8 +20,8 @@ Format to be replaced in files:
 ```
 const blob1 = new Blob([/* data/test.obj here */]);
 const blob2 = new Blob([/* data/test.mtl here */]);
-const imageData = new Uint8Array([/* data/test.jpg here */]);
-```
+const imageData = `/* data/test.jpg here */`;
+````
 
 ## Command
 
@@ -38,5 +38,5 @@ v 0.000000 0.000000 -1.500000
 ...
 ]);
 ...
-const imageData = new Uint8Array([0xff, 0xd8, 0xff, 0xe1, ....]);
+const imageData = `base64encoded`;
 ```
