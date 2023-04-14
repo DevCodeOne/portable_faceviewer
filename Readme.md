@@ -9,4 +9,6 @@ list of files to replace in [template.html] to write into [index.html]
 
 Format to be replaced in files:
 
-> /* <filename relative to exec path> here */
+```
+/* <filename relative to exec path> here */
+```
