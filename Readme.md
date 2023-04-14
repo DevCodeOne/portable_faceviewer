@@ -12,3 +12,31 @@ Format to be replaced in files:
 ```
 /* <filename relative to exec path> here */
 ```
+
+# Example
+
+## Input
+
+```
+const blob1 = new Blob([/* data/test.obj here */]);
+const blob2 = new Blob([/* data/test.mtl here */]);
+const imageData = new Uint8Array([/* data/test.jpg here */]);
+```
+
+## Command
+
+```
+python gen_portable_faceviewer.py data/test.mtl data/test.obj data/test.jpg -t template.html -o index.html
+```
+
+## Result
+
+```
+const blob1 = new Blob([`mtllib test.mtl
+v 0.000000 0.000000 -1.500000
+v 0.000000 0.000000 -1.500000
+...
+]);
+...
+const imageData = new Uint8Array([0xff, 0xd8, 0xff, 0xe1, ....]);
+```
