@@ -4,7 +4,7 @@ python gen_portable_faceviewer.py data/test.mtl data/test.obj data/test.jpg -t t
 
 list of files to replace in [template.html] to write into [index.html]
 
-- binary files will be written into array list as bytes
+- binary files will be written as base64 encoded string, a byte array wasn't helpful when trying to store as image
 - text files will be written in backticks '`' as string
 
 Format to be replaced in files:
