@@ -96,14 +96,13 @@
 
 				scene.add( new THREE.AmbientLight( 0x443333 ) );
 
-				const blob1 = new Blob([/* data/test.obj here */]);
-				const blob2 = new Blob([/* data/test.mtl here */]);
-				const imageData = new Uint8Array([/* data/test.jpg here */]);
-				const blob3 = new Blob(imageData, { type : 'image/jpeg' });
-				const imageDataBase64 = btoa(String.fromCharCode.apply(null, imageData));
+				const blob1 = new Blob([/* Minimized.obj here */]);
+				const blob2 = new Blob([/* Minimized.mtl here */]);
+				const blob3 = new Blob([], { type : 'image/jpeg' });
+				const imageDataBase64 = `/* texture.jpg here */`
 				const imageUrl = "data:image/jpeg;base64,"+imageDataBase64;
 
-				const blobs = {'test.obj': blob1, 'test.mtl': blob2, './test.jpg': blob3};
+				const blobs = {'test.obj': blob1, 'test.mtl': blob2, './texture.jpg': blob3};
 
 				const manager = new THREE.LoadingManager();
 
@@ -149,7 +148,7 @@ textureLoader.load(
 					loader.load( 'test.obj', (obj) => {
 						objectURLs.forEach( ( url ) => URL.revokeObjectURL( url ) );
 						mesh = obj;
-						mesh.scale.set( 10, 10, 10 );
+						mesh.scale.set( 0.1, 0.10, 0.10 );
 						mesh.traverse( ( child ) => {
 
 							// if ( child.isMesh ) child.geometry.computeVertexNormals();
